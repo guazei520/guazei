@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日蛋糕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+</head>
+<body class="cake-page">
+    <div class="cake-container">
+        <div class="cake">
+            <div class="cake-layers">
+                <div class="layer layer-1"></div>
+                <div class="layer layer-2"></div>
+                <div class="layer layer-3"></div>
+                <div class="icing"></div>
+                <div class="drip drip1"></div>
+                <div class="drip drip2"></div>
+                <div class="drip drip3"></div>
+            </div>
+            <div class="candles">
+                <div class="candle" data-candle="1">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" data-candle="2">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" data-candle="3">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" data-candle="4">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" data-candle="5">
+                    <div class="flame"></div>
+                </div>
+            </div>
+            <div class="name-input">
+                <input type="text" id="birthdayPerson" placeholder="请输入寿星名字" maxlength="10">
+                <button onclick="setName()">确定</button>
+            </div>
+            <div id="displayName" class="birthday-name"></div>
+        </div>
+    </div>
+    <div class="instructions">点击蜡烛可以吹灭哦～</div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,38 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const candles = document.querySelectorAll('.candle');
+    let extinguishedCount = 0;
+
+    candles.forEach(candle => {
+        candle.addEventListener('click', function() {
+            if (this.querySelector('.flame')) {
+                const flame = this.querySelector('.flame');
+                flame.style.animation = 'fadeOut 0.5s forwards';
+                
+                setTimeout(() => {
+                    flame.remove();
+                    extinguishedCount++;
+                    
+                    if (extinguishedCount === candles.length) {
+                        const name = document.getElementById('displayName').textContent;
+                        localStorage.setItem('birthdayPerson', name);
+                        setTimeout(() => {
+                            window.location.href = './pineapple-house.html';
+                        }, 1000);
+                    }
+                }, 500);
+            }
+        });
+    });
+});
+
+function setName() {
+    const nameInput = document.getElementById('birthdayPerson');
+    const displayName = document.getElementById('displayName');
+    const inputContainer = document.querySelector('.name-input');
+    
+    if (nameInput.value.trim() !== '') {
+        displayName.textContent = nameInput.value + ' 的生日蛋糕';
+        displayName.style.display = 'block';
+        inputContainer.style.display = 'none';
+    }
+} 

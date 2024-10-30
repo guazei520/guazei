@@ -1,0 +1,491 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('./images/spongebob-bg.jpg') center center/cover no-repeat fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-blend-mode: overlay;
+    font-family: 'Arial', sans-serif;
+}
+
+.cake-container {
+    position: relative;
+    width: 600px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 77, 182, 0.3);
+}
+
+.cake {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cake-img {
+    width: 100%;
+    height: auto;
+}
+
+.candles {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.candle {
+    width: 20px;
+    height: 60px;
+    background: linear-gradient(45deg, #4361ee, #4895ef);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.candle:nth-child(2) { background: linear-gradient(45deg, #48cae4, #90e0ef); }
+.candle:nth-child(3) { background: linear-gradient(45deg, #00b4d8, #48cae4); }
+.candle:nth-child(4) { background: linear-gradient(45deg, #0077b6, #023e8a); }
+.candle:nth-child(5) { background: linear-gradient(45deg, #90e0ef, #caf0f8); }
+
+.flame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 30px;
+    background: #ffd700;
+    border-radius: 50% 50% 20% 20%;
+    animation: flicker 0.6s infinite alternate, colorChange 2s infinite;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(0.9); }
+}
+
+@keyframes colorChange {
+    0% { background: #ffd60a; }
+    50% { background: #ffc300; }
+    100% { background: #ffd60a; }
+}
+
+.name-input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+}
+
+.name-input input {
+    padding: 8px 15px;
+    font-size: 18px;
+    border: 2px solid #4895ef;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    width: 200px;
+    margin-bottom: 10px;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.name-input button {
+    padding: 8px 20px;
+    background: #4895ef;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.name-input button:hover {
+    background: #4361ee;
+    transform: scale(1.05);
+}
+
+.birthday-name {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    color: #023e8a;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.instructions {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #023e8a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 蛋糕页面特定样式 */
+.cake-page {
+    background: linear-gradient(135deg, #023e8a, #0077b6);
+}
+
+/* 菠萝屋页面样式 */
+.house-page {
+    background: url('./images/spongebob-bg.jpg') center center/cover no-repeat fixed;
+}
+
+.house-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #87CEEB, #4CA1AF);
+}
+
+.pineapple-house {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    margin: auto;
+}
+
+.house-elements {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.house-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    background: #FFD700;
+    border-radius: 50% 50% 30% 30%;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        #FFA500 20px,
+        #FFA500 40px
+    );
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.house-door {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 120px;
+    background: #8B4513;
+    border-radius: 40px 40px 0 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.door-light {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #FFD700;
+    animation: doorGlow 2s infinite;
+}
+
+.house-window {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #87CEEB;
+    border-radius: 50%;
+    border: 5px solid #8B4513;
+}
+
+.left-window {
+    left: 20%;
+    top: 40%;
+}
+
+.right-window {
+    right: 20%;
+    top: 40%;
+}
+
+.leaves {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 150px;
+}
+
+.leaf {
+    position: absolute;
+    background: #228B22;
+    width: 40px;
+    height: 120px;
+    border-radius: 20px;
+}
+
+.leaf1 {
+    transform: rotate(-30deg);
+    left: 20px;
+}
+
+.leaf2 {
+    transform: rotate(0deg);
+    left: 80px;
+}
+
+.leaf3 {
+    transform: rotate(30deg);
+    right: 20px;
+}
+
+/* 动画效果 */
+@keyframes doorGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.house-door:hover {
+    transform: translateX(-50%) scale(1.1);
+    background: #A0522D;
+}
+
+.house-door:hover .door-light {
+    animation: doorGlow 0.5s infinite;
+}
+
+/* 添加云朵装饰 */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    animation: floatCloud linear infinite;
+}
+
+.cloud1 {
+    width: 100px;
+    height: 40px;
+    top: 20%;
+    left: -100px;
+    animation-duration: 15s;
+}
+
+.cloud2 {
+    width: 80px;
+    height: 30px;
+    top: 30%;
+    left: -80px;
+    animation-duration: 12s;
+}
+
+@keyframes floatCloud {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100vw + 200px)); }
+}
+
+/* 添加海草装饰 */
+.seaweed {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 100px;
+    background: #2E8B57;
+    border-radius: 10px;
+    animation: sway 3s ease-in-out infinite;
+}
+
+.seaweed1 { left: 10%; animation-delay: 0s; }
+.seaweed2 { left: 85%; animation-delay: 0.5s; }
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.house-img {
+    width: 100%;
+    height: auto;
+}
+
+.door {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+    height: 25%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.door:hover {
+    filter: brightness(1.2);
+}
+
+/* 添加门的发光效果 */
+.door::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 0, 0.2);
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.door:hover::after {
+    opacity: 1;
+}
+
+/* 添加动态蛋糕样式 */
+.cake-layers {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4361ee, #4895ef);
+}
+
+.layer-1 {
+    bottom: 0;
+    width: 280px;
+    height: 70px;
+    animation: layerPulse 2s infinite;
+    background: linear-gradient(135deg, #4895ef, #4cc9f0);
+}
+
+.layer-2 {
+    bottom: 60px;
+    width: 220px;
+    height: 60px;
+    animation: layerPulse 2s infinite 0.3s;
+    background: linear-gradient(135deg, #48cae4, #90e0ef);
+}
+
+.layer-3 {
+    bottom: 110px;
+    width: 160px;
+    height: 50px;
+    animation: layerPulse 2s infinite 0.6s;
+    background: linear-gradient(135deg, #00b4d8, #48cae4);
+}
+
+.icing {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 40px;
+    background: linear-gradient(135deg, #caf0f8, #ffffff);
+    border-radius: 50%;
+    animation: icingShine 3s infinite;
+}
+
+.drip {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+.drip1 { left: 40%; animation: drip 4s infinite; }
+.drip2 { left: 50%; animation: drip 4s infinite 1s; }
+.drip3 { left: 60%; animation: drip 4s infinite 2s; }
+
+@keyframes layerPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.02); }
+}
+
+@keyframes icingShine {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes drip {
+    0% { height: 0; opacity: 1; }
+    70% { height: 20px; opacity: 1; }
+    100% { height: 20px; opacity: 0; }
+}
+
+/* 添加蛋糕整体悬浮动画 */
+.cake {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* 添加装饰元素 */
+.sprinkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sprinkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #4361ee;
+    border-radius: 50%;
+    animation: sprinkleFall 3s linear infinite;
+}
+
+.sprinkle:nth-child(1) { background: #4361ee; }
+.sprinkle:nth-child(2) { background: #48cae4; }
+.sprinkle:nth-child(3) { background: #00b4d8; }
+.sprinkle:nth-child(4) { background: #0077b6; }
+.sprinkle:nth-child(5) { background: #90e0ef; }
+
+@keyframes sprinkleFall {
+    0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100%) rotate(360deg); opacity: 0; }
+}

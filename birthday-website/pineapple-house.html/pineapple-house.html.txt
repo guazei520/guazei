@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海绵宝宝的家</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="house-page">
+    <div class="house-container">
+        <div class="pineapple-house">
+            <div class="house-elements">
+                <!-- 菠萝屋主体 -->
+                <div class="house-body"></div>
+                <!-- 门 -->
+                <div class="house-door" onclick="enterHouse()">
+                    <div class="door-light"></div>
+                </div>
+                <!-- 窗户 -->
+                <div class="house-window left-window"></div>
+                <div class="house-window right-window"></div>
+                <!-- 叶子 -->
+                <div class="leaves">
+                    <div class="leaf leaf1"></div>
+                    <div class="leaf leaf2"></div>
+                    <div class="leaf leaf3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="instructions">点击门进入～</div>
+    </div>
+    <script>
+        function enterHouse() {
+            window.location.href = './wishes.html';
+        }
+    </script>
+</body>
+</html> 
